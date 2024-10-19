@@ -2,66 +2,73 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //[Header("Settings")]
+    [Header("Settings")]
+    [Tooltip("The height that the bungee will bounce back to the top from")]
+    [SerializeField, Range(0, -100)] float _bungeeHeight;
 
     [Header("References")]
-    [SerializeField] private Rigidbody _rb;
     [SerializeField] private Transform _bungeeOrigin;
 
     [Header("Data")]
-    private Vector3 _targetPosition;
+    [SerializeField] float _speed = 5f;
+    [SerializeField] float mouseSensitivity = 100f;
 
-    public float _speed = 5f;
-    public float mouseSensitivity = 100f;
-
-    float xRotation = 0f;
-    float yRotation = 0f;
-
-    [SerializeField] float _height;
     [SerializeField] float _maxSpeed;
     [SerializeField] float _damping;
 
-    private Vector3 _velocity = new Vector3();
+    [SerializeField] float rayLength = 100f;
 
-    public float rayLength = 100f;
+    private Vector3 _targetPosition;
+    private float xRotation = 0f;
+    private float yRotation = 0f;
 
+    private Vector3 _velocity = new();
 
-    void Start()
-    {
-        // Lock the cursor to the center of the screen
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+    private bool _isJumping;
+    private bool _isGoingUp;
 
     void Update()
     {
         UpdatePlayerCamera();
+        CheckHeight();
 
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.green);
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !_isJumping && !_isGoingUp)
         {
             // Create a ray from the camera going forward
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
             RaycastHit hit;
 
             // Perform the raycast
             if (Physics.Raycast(ray, out hit, rayLength))
             {
                 _targetPosition = hit.point;
-                Debug.Log(_targetPosition);
+                _isJumping = true;
             }
         }
-        
-        if(Input.GetMouseButton(0))
+
+        if (!_isGoingUp && _isJumping)
         {
             MoveToPosition(_targetPosition);
-            
         }
-        else
+        else if (_isGoingUp && !_isJumping)
         {
             MoveToPosition(_bungeeOrigin.position);
         }
 
+    }
+
+    private void CheckHeight()
+    {
+        if (transform.position.y <= _bungeeHeight)
+        {
+            _isJumping = false;
+            _isGoingUp = true;
+        }
+
+        if (transform.position.y > -0.5f)
+        {
+            _isGoingUp = false;
+        }
     }
 
     private void UpdatePlayerCamera()
@@ -86,7 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         _velocity = Vector3.ClampMagnitude(_velocity, _maxSpeed);
 
-        var n1 = _velocity - (transform.position - target) * _damping * _damping * Time.deltaTime;
+        var n1 = _velocity - _damping * _damping * Time.deltaTime * (transform.position - target);
         var n2 = 1 + _damping * Time.deltaTime;
         _velocity = n1 / (n2 * n2);
 
