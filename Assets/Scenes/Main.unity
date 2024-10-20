@@ -5754,7 +5754,7 @@ MonoBehaviour:
   _ropeSnap: {fileID: 8300000, guid: 70c5a93fb981ecd488d41d0119133d21, type: 3}
   _fallYell: {fileID: 8300000, guid: 1269864dd3addca49a2175c072fb707f, type: 3}
   mouseSensitivity: 1000
-  _maxSpeed: 50
+  _maxSpeed: 70
   _damping: 14
   rayLength: 250
 --- !u!54 &1633627616
@@ -8237,7 +8237,7 @@ PrefabInstance:
       objectReference: {fileID: 801978255}
     - target: {fileID: 2421403035292678041, guid: df6fa9c4f756b634fbf4ef68b645b8c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadIntro
+      value: LoadStart
       objectReference: {fileID: 0}
     - target: {fileID: 4068179040810679190, guid: df6fa9c4f756b634fbf4ef68b645b8c4, type: 3}
       propertyPath: m_AnchorMax.y

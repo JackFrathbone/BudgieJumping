@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
         _safetyTimer += Time.deltaTime;
 
-        if (_safetyTimer > 10f)
+        if (_safetyTimer > 5f)
         {
             _isJumping = false;
             _isGoingUp = false;
