@@ -5,29 +5,50 @@ public class BirdManager : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] int _birdLimit;
+    [SerializeField] float _spawnRadius = 5f;
 
     [Header("References")]
     [SerializeField] List<GameObject> _birdPrefabs = new();
-    [SerializeField] List<GameObject> _birdSpawners = new();
 
     [Header("Data")]
+    private List<GameObject> _birdSpawners = new();
     private List<GameObject> _currentBirds = new();
+
+    private void Start()
+    {
+        //Get all bird spawners
+        foreach (GameObject birdSpawner in GameObject.FindGameObjectsWithTag("BirdSpawner"))
+        {
+            _birdSpawners.Add(birdSpawner);
+        }
+    }
 
     private void Update()
     {
         if (_currentBirds.Count < _birdLimit)
         {
-            Instantiate(GetRandomBirdPrefab(), GetRandomBirdSpawnerPosition(), Quaternion.identity);
+            _currentBirds.Add(Instantiate(GetRandomBirdPrefab(), GetRandomBirdSpawnerPosition(), Quaternion.identity));
         }
     }
 
     private GameObject GetRandomBirdPrefab()
     {
-        return _birdPrefabs[Random.Range(0, _birdPrefabs.Count)];
+        float randomValue = Random.Range(0f, 100f);
+        if (randomValue < 10f)
+        {
+            return _birdPrefabs[Random.Range(0, _birdPrefabs.Count)];
+        }
+        else
+        {
+            return _birdPrefabs[Random.Range(0, 3)];
+        }
+
+
     }
 
-    private Vector3 GetRandomBirdSpawnerPosition()
+    public Vector3 GetRandomBirdSpawnerPosition()
     {
-        return _birdSpawners[Random.Range(0, _birdSpawners.Count)].transform.position;
+        Vector3 randomPosition = (_birdSpawners[Random.Range(0, _birdSpawners.Count)].transform.position) + Random.insideUnitSphere * _spawnRadius;
+        return randomPosition;
     }
 }

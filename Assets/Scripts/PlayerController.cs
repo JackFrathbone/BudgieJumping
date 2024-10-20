@@ -130,11 +130,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _canCashIn = true;
+        if (!other.CompareTag("Budgie"))
+        {
+            _canCashIn = true;
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _canCashIn = false;
+        if (!other.CompareTag("Budgie"))
+        {
+            _canCashIn = false;
+        }
     }
 }
