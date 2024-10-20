@@ -5721,7 +5721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fedb866e3691b148b0975cecc81a585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bungeeHeight: -85
+  _bungeeHeight: -80
   _bungeeOrigin: {fileID: 253660574}
   _cashInHudText: {fileID: 1199681511}
   _gameController: {fileID: 1928130110}
@@ -5754,7 +5754,7 @@ MonoBehaviour:
   _ropeSnap: {fileID: 8300000, guid: 70c5a93fb981ecd488d41d0119133d21, type: 3}
   _fallYell: {fileID: 8300000, guid: 1269864dd3addca49a2175c072fb707f, type: 3}
   mouseSensitivity: 1000
-  _maxSpeed: 70
+  _maxSpeed: 75
   _damping: 14
   rayLength: 250
 --- !u!54 &1633627616

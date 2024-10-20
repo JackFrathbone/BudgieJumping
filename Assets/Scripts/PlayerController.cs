@@ -140,6 +140,15 @@ public class PlayerController : MonoBehaviour
 
         _bungeeHealthText.text = $"Rope Integrity {_bungeeHealth}";
 
+        if(_bungeeHealth > 30)
+        {
+            _bungeeHealthText.color = Color.black;
+        }
+        else
+        {
+            _bungeeHealthText.color = Color.red;
+        }
+
         if (_bungeeHealth <= 0)
         {
             _audioSource.PlayOneShot(_ropeSnap);
