@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _handsFull;
 
     [SerializeField] List<BudgieHolder> _budgieHolders = new();
+
+    [SerializeField] TextMeshProUGUI _bungeeHealthText;
 
     [Header("Data")]
     [SerializeField] float _speed = 5f;
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private List<BudgieController> _holdingBudgies = new();
 
+    private int _bungeeHealth = 100;
 
     private void Start()
     {
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                _bungeeHealth = 100;
                 CalculateBudgies();
                 _gameController.OpenMarketScreen();
             }
@@ -92,6 +97,9 @@ public class PlayerController : MonoBehaviour
             {
                 _targetPosition = hit.point;
                 _isJumping = true;
+
+                //Take away bungee health
+                _bungeeHealth -= Random.Range(2, 11);
             }
         }
 
@@ -111,6 +119,13 @@ public class PlayerController : MonoBehaviour
         {
             _speedlines.SetActive(false);
             _vignette.SetActive(false);
+        }
+
+        _bungeeHealthText.text = $"Rope Integrity - {_bungeeHealth}";
+
+        if(_bungeeHealth <= 0)
+        {
+            _gameController.LoseGame();
         }
     }
 

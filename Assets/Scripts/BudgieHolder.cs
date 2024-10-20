@@ -66,12 +66,19 @@ public class BudgieHolder : MonoBehaviour
             _animTimer = 0f;
         }
 
+        if(_escapeTimer < 5f)
+        {
+            _animator.SetBool("BreakingFree", true);
+        }
+        else
+        {
+            _animator.SetBool("BreakingFree", false);
+        }
+
         if (_escapeTimer <= 0)
         {
             RemoveBudgie();
         }
-
-        _animator.SetFloat("Speed", 1f - (_escapeTimer / _totalEscapeTime));
     }
 
     public void AddBudgie(BudgieType type, BudgieController budgie)
@@ -135,6 +142,8 @@ public class BudgieHolder : MonoBehaviour
     {
         _image.color = Color.clear;
         _image.sprite = null;
+
+        _animator.SetBool("BreakingFree", false);
 
         HasBudgie = false;
 

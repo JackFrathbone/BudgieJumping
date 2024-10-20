@@ -12,7 +12,7 @@ public class BirdManager : MonoBehaviour
 
     [Header("Data")]
     private List<GameObject> _birdSpawners = new();
-    private List<GameObject> _currentBirds = new();
+    private int _currentBirds = 0;
 
     private void Start()
     {
@@ -25,9 +25,10 @@ public class BirdManager : MonoBehaviour
 
     private void Update()
     {
-        if (_currentBirds.Count < _birdLimit)
+        if (_currentBirds < _birdLimit)
         {
-            _currentBirds.Add(Instantiate(GetRandomBirdPrefab(), GetRandomBirdSpawnerPosition(), Quaternion.identity));
+            _currentBirds++;
+            Instantiate(GetRandomBirdPrefab(), GetRandomBirdSpawnerPosition(), Quaternion.identity);
         }
     }
 
@@ -50,5 +51,10 @@ public class BirdManager : MonoBehaviour
     {
         Vector3 randomPosition = (_birdSpawners[Random.Range(0, _birdSpawners.Count)].transform.position) + Random.insideUnitSphere * _spawnRadius;
         return randomPosition;
+    }
+
+    public void ReportDestroyedBird()
+    {
+        _currentBirds--;
     }
 }

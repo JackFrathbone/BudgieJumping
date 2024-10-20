@@ -97,4 +97,9 @@ public class BudgieController : MonoBehaviour
         _collider.enabled = false;
         _immunityTimer = 5f;
     }
+
+    private void OnDestroy()
+    {
+        _birdManager.ReportDestroyedBird();
+    }
 }

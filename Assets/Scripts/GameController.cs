@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BudgieType
 {
@@ -25,10 +26,32 @@ public class GameController : MonoBehaviour
     [Header("Screens")]
     [SerializeField] GameObject _market;
     [SerializeField] GameObject _payment;
+    [SerializeField] GameObject _win;
+    [SerializeField] GameObject _lose;
 
     private void Start()
     {
         DisableCursor();
+    }
+
+    public void WinGame()
+    {
+        _win.gameObject.SetActive(true);
+    }
+
+    public void LoseGame()
+    {
+        _lose.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void OpenMarketScreen()
