@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform _bungeeOrigin;
+    [SerializeField] GameObject _cashInHudText;
+
+    [SerializeField] GameController _gameController;
 
     [Header("Data")]
     [SerializeField] float _speed = 5f;
@@ -27,10 +30,35 @@ public class PlayerController : MonoBehaviour
     private bool _isJumping;
     private bool _isGoingUp;
 
+    private bool _canCashIn;
+
     void Update()
     {
+        if (GameController.Paused)
+        {
+            transform.position = _bungeeOrigin.position;
+            return;
+        }
+
         UpdatePlayerCamera();
         CheckHeight();
+
+        //For cash in
+        if (_canCashIn)
+        {
+            _cashInHudText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                _gameController.OpenMarketScreen();
+            }
+
+        }
+        else
+        {
+            _cashInHudText.SetActive(false);
+        }
+
 
         if (Input.GetMouseButtonDown(0) && !_isJumping && !_isGoingUp)
         {
@@ -98,5 +126,15 @@ public class PlayerController : MonoBehaviour
         _velocity = n1 / (n2 * n2);
 
         transform.position += _velocity * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        _canCashIn = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _canCashIn = false;
     }
 }
