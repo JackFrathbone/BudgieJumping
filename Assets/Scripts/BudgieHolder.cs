@@ -66,7 +66,7 @@ public class BudgieHolder : MonoBehaviour
             _animTimer = 0f;
         }
 
-        if(_escapeTimer < 5f)
+        if (_escapeTimer < 5f)
         {
             _animator.SetBool("BreakingFree", true);
         }
@@ -133,6 +133,17 @@ public class BudgieHolder : MonoBehaviour
 
         _image.color = Color.white;
         _image.sprite = _currentAnimation[0];
+
+        if (Random.Range(0, 2) == 1)
+        {
+            _image.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            _image.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+ 
 
         _escapeTimer = Random.Range(_minEscapeTime, _maxEscapeTime);
         _totalEscapeTime = _escapeTimer;

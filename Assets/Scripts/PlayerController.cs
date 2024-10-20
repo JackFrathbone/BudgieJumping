@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] List<BudgieHolder> _budgieHolders = new();
 
     [SerializeField] TextMeshProUGUI _bungeeHealthText;
+    [SerializeField] TextMeshProUGUI _birdCountText;
 
     [SerializeField] AudioClip _bungeeFall;
     [SerializeField] AudioClip _bungeeBoing;
@@ -142,6 +143,8 @@ public class PlayerController : MonoBehaviour
 
             _bungeeHealth = 100;
         }
+
+        _birdCountText.text = $"Birds in Hands {_holdingBudgies.Count}";
     }
 
     private void CheckHeight()
