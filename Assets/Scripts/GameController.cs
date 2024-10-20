@@ -114,6 +114,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
+
     public static void LoadStart()
     {
         EnableCursor();
