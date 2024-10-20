@@ -16,6 +16,7 @@ public class BudgieButtonController : MonoBehaviour
 
     [Header("Data")]
     private int _cost;
+    private int _previousCost = 0;
 
     private void OnEnable()
     {
@@ -25,8 +26,18 @@ public class BudgieButtonController : MonoBehaviour
 
     private void AdjustCost()
     {
+        if (_previousCost != 0)
+        {
+            _previousCost = _cost;
+        }
+
         //Adjust the cost randomly
         _cost = Random.Range(_baseCost + -_maxIncrease, _baseCost + _maxIncrease);
+
+        if (_previousCost == 0)
+        {
+            _previousCost = _cost;
+        }
     }
 
     private void UpdateLabel()
@@ -34,6 +45,19 @@ public class BudgieButtonController : MonoBehaviour
         _budgieMarketController.UpdatePlayerMoneyLabel();
 
         _budgieCost.text = "$" + _cost.ToString();
+
+        if (_previousCost > _cost)
+        {
+            _budgieCost.color = Color.red;
+        }
+        else if (_previousCost < _cost)
+        {
+            _budgieCost.color = Color.green;
+        }
+        else if (_previousCost == _cost)
+        {
+            _budgieCost.color = Color.black;
+        }
 
         switch (_budgieType)
         {

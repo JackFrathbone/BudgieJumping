@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI _bungeeHealthText;
 
     [Header("Data")]
-    [SerializeField] float _speed = 5f;
     [SerializeField] float mouseSensitivity = 100f;
 
     [SerializeField] float _maxSpeed;
@@ -99,7 +98,7 @@ public class PlayerController : MonoBehaviour
                 _isJumping = true;
 
                 //Take away bungee health
-                _bungeeHealth -= Random.Range(2, 11);
+                _bungeeHealth -= Random.Range(5, 20);
             }
         }
 
@@ -121,9 +120,9 @@ public class PlayerController : MonoBehaviour
             _vignette.SetActive(false);
         }
 
-        _bungeeHealthText.text = $"Rope Integrity - {_bungeeHealth}";
+        _bungeeHealthText.text = $"Rope Integrity {_bungeeHealth}";
 
-        if(_bungeeHealth <= 0)
+        if (_bungeeHealth <= 0)
         {
             _gameController.LoseGame();
         }
@@ -145,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHands()
     {
-        if(_holdingBudgies.Count > 0)
+        if (_holdingBudgies.Count > 0)
         {
             _handsEmpty.SetActive(false);
             _handsFull.SetActive(true);
@@ -212,7 +211,7 @@ public class PlayerController : MonoBehaviour
         pickedUpBudgie.gameObject.SetActive(false);
         _holdingBudgies.Add(pickedUpBudgie);
 
-        foreach(BudgieHolder budgieHolder in _budgieHolders)
+        foreach (BudgieHolder budgieHolder in _budgieHolders)
         {
             if (!budgieHolder.HasBudgie)
             {
@@ -224,7 +223,7 @@ public class PlayerController : MonoBehaviour
 
     private void CalculateBudgies()
     {
-        foreach(BudgieController budgie in _holdingBudgies)
+        foreach (BudgieController budgie in _holdingBudgies)
         {
             switch (budgie.BudgieType)
             {
@@ -244,7 +243,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //
-        foreach(BudgieHolder holder in _budgieHolders)
+        foreach (BudgieHolder holder in _budgieHolders)
         {
             if (holder.HasBudgie)
             {
@@ -258,7 +257,7 @@ public class PlayerController : MonoBehaviour
         List<BudgieController> sceneBudgies = new();
         sceneBudgies = FindObjectsOfType<BudgieController>().ToList<BudgieController>();
 
-        foreach(BudgieController budgieController in sceneBudgies)
+        foreach (BudgieController budgieController in sceneBudgies)
         {
             Destroy(budgieController.gameObject, 1f);
         }

@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a956e3716eed72d45933a96e42e7538c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _birdLimit: 8
+  _birdLimit: 12
   _spawnRadius: 5
   _birdPrefabs:
   - {fileID: 5468345068863783452, guid: 3f19f77554c8fd446be2fe8e725a2056, type: 3}
