@@ -114,6 +114,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void LoadStart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadIntro()
     {
         SceneManager.LoadScene(1);
