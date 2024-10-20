@@ -25,6 +25,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI _bungeeHealthText;
 
+    [SerializeField] AudioClip _bungeeFall;
+    [SerializeField] AudioClip _bungeeBoing;
+    [SerializeField] AudioClip _budgieYell;
+    [SerializeField] AudioClip _ropeSnap;
+    [SerializeField] AudioClip _fallYell;
+
+    private AudioSource _audioSource;
+
     [Header("Data")]
     [SerializeField] float mouseSensitivity = 100f;
 
@@ -52,6 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         _speedlines.SetActive(false);
         _vignette.SetActive(false);
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -99,6 +109,8 @@ public class PlayerController : MonoBehaviour
 
                 //Take away bungee health
                 _bungeeHealth -= Random.Range(5, 20);
+
+                _audioSource.PlayOneShot(_bungeeFall);
             }
         }
 
@@ -124,7 +136,11 @@ public class PlayerController : MonoBehaviour
 
         if (_bungeeHealth <= 0)
         {
+            _audioSource.PlayOneShot(_ropeSnap);
+            _audioSource.PlayOneShot(_fallYell);
             _gameController.LoseGame();
+
+            _bungeeHealth = 100;
         }
     }
 
@@ -132,6 +148,8 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y <= _bungeeHeight)
         {
+            _audioSource.PlayOneShot(_bungeeBoing);
+
             _isJumping = false;
             _isGoingUp = true;
         }
@@ -193,6 +211,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _audioSource.PlayOneShot(_budgieYell);
             PickUpBudgie(other.GetComponent<BudgieController>());
         }
 
