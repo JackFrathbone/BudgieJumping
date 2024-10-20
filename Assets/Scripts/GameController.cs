@@ -32,11 +32,11 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             DisableCursor();
         }
-        
+
     }
 
     public void WinGame()

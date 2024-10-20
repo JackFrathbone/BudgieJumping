@@ -29,8 +29,8 @@ public class CostController : MonoBehaviour
     {
         //Adjust the cost randomly
         _dailyCost1 = 85;
-        _dailyCost2 = Random.Range(50, 101);
-        _dailyCost3 = Random.Range(5, 100);
+        _dailyCost2 = 100;
+        _dailyCost3 = Random.Range(5, 50);
     }
 
     private void UpdateLabel()

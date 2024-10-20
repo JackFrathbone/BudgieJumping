@@ -800,6 +800,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _baseCost
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _budgieType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _maxIncrease
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
       propertyPath: _budgieMarketController
       value: 
       objectReference: {fileID: 3054438248651479298}
@@ -1032,6 +1044,18 @@ PrefabInstance:
     - target: {fileID: 203471013931303034, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _baseCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _budgieType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _maxIncrease
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
       propertyPath: _budgieMarketController
@@ -1268,6 +1292,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _baseCost
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _maxIncrease
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
       propertyPath: _budgieMarketController
       value: 
       objectReference: {fileID: 3054438248651479298}
@@ -1500,6 +1532,18 @@ PrefabInstance:
     - target: {fileID: 203471013931303034, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _baseCost
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _budgieType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
+      propertyPath: _maxIncrease
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 577557064328342461, guid: 7709ef10caca5bf44a683574a84eeeb5, type: 3}
       propertyPath: _budgieMarketController

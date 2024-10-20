@@ -984,8 +984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6aa7e5593269749913a4b0124f8357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseCost: 50
-  _maxIncrease: 25
+  _baseCost: 80
+  _maxIncrease: 50
   _budgieType: 0
   _budgieNameAndCount: {fileID: 6255493511103525493}
   _budgieCost: {fileID: 8105988287360809475}
