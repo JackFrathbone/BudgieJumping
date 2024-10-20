@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 72b6a04250887404488bed05176ce035, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -4883,6 +4883,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5775374886513477781, guid: e583cbc4d7952474aa9379e2a3de5a7b, type: 3}
   m_PrefabInstance: {fileID: 1452122886}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1452122888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5134593109931492745, guid: e583cbc4d7952474aa9379e2a3de5a7b, type: 3}
+  m_PrefabInstance: {fileID: 1452122886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1481255463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5301,6 +5312,7 @@ MonoBehaviour:
   - {fileID: 1381272280}
   - {fileID: 794241450}
   _bungeeHealthText: {fileID: 1300917727}
+  _birdCountText: {fileID: 1452122888}
   _bungeeFall: {fileID: 8300000, guid: ecfb6c71202b4274b9b1554c98ecd3cd, type: 3}
   _bungeeBoing: {fileID: 8300000, guid: 16627eb6d87b6f741bcde8e6adeb54ac, type: 3}
   _budgieYell: {fileID: 8300000, guid: 185f81c4bcbe6b8409d2437d19173a8e, type: 3}
