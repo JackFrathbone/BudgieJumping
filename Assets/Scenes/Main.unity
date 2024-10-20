@@ -679,6 +679,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4040507110655878847, guid: 914069391e25775489ea24b81337eb7d, type: 3}
   m_PrefabInstance: {fileID: 335204404318289580}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &883077076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3054438248651479298, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+  m_PrefabInstance: {fileID: 335204404318289580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883077071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3976d24262719743893e608fc4eff50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1306,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -517.9386
       objectReference: {fileID: 0}
+    - target: {fileID: 3760199298265821908, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _baseCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760199298265821908, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760199298265821908, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _maxIncrease
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760199298265821908, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieMarketController
+      value: 
+      objectReference: {fileID: 883077076}
     - target: {fileID: 3775148184726748674, guid: 914069391e25775489ea24b81337eb7d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1451,6 +1478,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100.4151
       objectReference: {fileID: 0}
+    - target: {fileID: 4570687164204958365, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _baseCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570687164204958365, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570687164204958365, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _maxIncrease
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570687164204958365, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieMarketController
+      value: 
+      objectReference: {fileID: 883077076}
     - target: {fileID: 5187792870281402189, guid: 914069391e25775489ea24b81337eb7d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1471,6 +1514,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100.4151
       objectReference: {fileID: 0}
+    - target: {fileID: 5561810269989338250, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieMarketController
+      value: 
+      objectReference: {fileID: 883077076}
+    - target: {fileID: 6332822030901475770, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _baseCost
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332822030901475770, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332822030901475770, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _maxIncrease
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332822030901475770, guid: 914069391e25775489ea24b81337eb7d, type: 3}
+      propertyPath: _budgieMarketController
+      value: 
+      objectReference: {fileID: 883077076}
     - target: {fileID: 6715868483447313021, guid: 914069391e25775489ea24b81337eb7d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

@@ -10,16 +10,11 @@ public class BudgieMarketController : MonoBehaviour
     {
         GameController.EnableCursor();
 
-        UpdatePlayerMoneyLabel(GameController.PlayerMoney);
+        UpdatePlayerMoneyLabel();
     }
 
-    private void UpdatePlayerMoneyLabel(int i)
+    public void UpdatePlayerMoneyLabel()
     {
-        _playerMoneyLabel.text = "Money $" + i.ToString();
-    }
-
-    public void SellGreenBudgie()
-    {
-
+        _playerMoneyLabel.text = "Money $" + GameController.PlayerMoney.ToString();
     }
 }
