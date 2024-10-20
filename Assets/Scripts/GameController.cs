@@ -31,7 +31,11 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        DisableCursor();
+        if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            DisableCursor();
+        }
+        
     }
 
     public void WinGame()
@@ -95,5 +99,15 @@ public class GameController : MonoBehaviour
                 GoldBudgieCount += i;
                 break;
         }
+    }
+
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(2);
     }
 }
