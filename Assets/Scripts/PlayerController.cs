@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _cashInHudText;
 
     [SerializeField] GameController _gameController;
+
+    [SerializeField] GameObject _speedlines;
+    [SerializeField] GameObject _vignette;
+
+    [SerializeField] GameObject _handsEmpty;
+    [SerializeField] GameObject _handsFull;
+
+    [SerializeField] List<BudgieHolder> _budgieHolders = new();
 
     [Header("Data")]
     [SerializeField] float _speed = 5f;
@@ -32,6 +42,15 @@ public class PlayerController : MonoBehaviour
 
     private bool _canCashIn;
 
+    private List<BudgieController> _holdingBudgies = new();
+
+
+    private void Start()
+    {
+        _speedlines.SetActive(false);
+        _vignette.SetActive(false);
+    }
+
     void Update()
     {
         if (GameController.Paused)
@@ -42,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
         UpdatePlayerCamera();
         CheckHeight();
+        UpdateHands();
 
         //For cash in
         if (_canCashIn)
@@ -50,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                CalculateBudgies();
                 _gameController.OpenMarketScreen();
             }
 
@@ -76,13 +97,21 @@ public class PlayerController : MonoBehaviour
 
         if (!_isGoingUp && _isJumping)
         {
+            _speedlines.SetActive(true);
+            _vignette.SetActive(true);
             MoveToPosition(_targetPosition);
         }
         else if (_isGoingUp && !_isJumping)
         {
+            _speedlines.SetActive(false);
+            _vignette.SetActive(true);
             MoveToPosition(_bungeeOrigin.position);
         }
-
+        else if (!_isGoingUp && !_isJumping)
+        {
+            _speedlines.SetActive(false);
+            _vignette.SetActive(false);
+        }
     }
 
     private void CheckHeight()
@@ -96,6 +125,20 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y > -0.5f)
         {
             _isGoingUp = false;
+        }
+    }
+
+    private void UpdateHands()
+    {
+        if(_holdingBudgies.Count > 0)
+        {
+            _handsEmpty.SetActive(false);
+            _handsFull.SetActive(true);
+        }
+        else
+        {
+            _handsEmpty.SetActive(true);
+            _handsFull.SetActive(false);
         }
     }
 
@@ -134,6 +177,10 @@ public class PlayerController : MonoBehaviour
         {
             _canCashIn = true;
         }
+        else
+        {
+            PickUpBudgie(other.GetComponent<BudgieController>());
+        }
 
     }
 
@@ -143,5 +190,70 @@ public class PlayerController : MonoBehaviour
         {
             _canCashIn = false;
         }
+    }
+
+    private void PickUpBudgie(BudgieController pickedUpBudgie)
+    {
+        pickedUpBudgie.gameObject.SetActive(false);
+        _holdingBudgies.Add(pickedUpBudgie);
+
+        foreach(BudgieHolder budgieHolder in _budgieHolders)
+        {
+            if (!budgieHolder.HasBudgie)
+            {
+                budgieHolder.AddBudgie(pickedUpBudgie.BudgieType, pickedUpBudgie);
+                break;
+            }
+        }
+    }
+
+    private void CalculateBudgies()
+    {
+        foreach(BudgieController budgie in _holdingBudgies)
+        {
+            switch (budgie.BudgieType)
+            {
+                case BudgieType.Green:
+                    GameController.AddBudgieCount(BudgieType.Green, 1);
+                    break;
+                case BudgieType.Blue:
+                    GameController.AddBudgieCount(BudgieType.Blue, 1);
+                    break;
+                case BudgieType.Red:
+                    GameController.AddBudgieCount(BudgieType.Red, 1);
+                    break;
+                case BudgieType.Gold:
+                    GameController.AddBudgieCount(BudgieType.Gold, 1);
+                    break;
+            }
+        }
+
+        //
+        foreach(BudgieHolder holder in _budgieHolders)
+        {
+            if (holder.HasBudgie)
+            {
+                holder.RemoveBudgie();
+            }
+        }
+
+        //Clear scene stuff
+        _holdingBudgies.Clear();
+
+        List<BudgieController> sceneBudgies = new();
+        sceneBudgies = FindObjectsOfType<BudgieController>().ToList<BudgieController>();
+
+        foreach(BudgieController budgieController in sceneBudgies)
+        {
+            Destroy(budgieController.gameObject, 1f);
+        }
+    }
+
+    public void DropBudgie(BudgieController budgie)
+    {
+        budgie.gameObject.SetActive(true);
+        budgie.transform.position = transform.position;
+
+        _holdingBudgies.Remove(budgie);
     }
 }
