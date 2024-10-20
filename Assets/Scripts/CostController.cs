@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -27,9 +28,9 @@ public class CostController : MonoBehaviour
     private void AdjustCost()
     {
         //Adjust the cost randomly
-        _dailyCost1 = Random.Range(5, 10);
-        _dailyCost2 = Random.Range(5, 10);
-        _dailyCost3 = Random.Range(5, 10);
+        _dailyCost1 = 85;
+        _dailyCost2 = Random.Range(50, 101);
+        _dailyCost3 = Random.Range(5, 100);
     }
 
     private void UpdateLabel()
@@ -53,6 +54,11 @@ public class CostController : MonoBehaviour
         if (GameController.PlayerMoney > 0)
         {
             GameController.PlayerDebt -= GameController.PlayerMoney;
+        }
+
+        if (GameController.PlayerMoney < 0)
+        {
+            GameController.Lost = true;
         }
 
         GameController.PlayerMoney = 0;

@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 
     [Header("States")]
     public static bool Paused;
+    public static bool Lost;
 
     [Header("Screens")]
     [SerializeField] GameObject _market;
@@ -40,16 +41,19 @@ public class GameController : MonoBehaviour
 
     public void WinGame()
     {
+        EnableCursor();
         _win.gameObject.SetActive(true);
     }
 
     public void LoseGame()
     {
+        EnableCursor();
         _lose.gameObject.SetActive(true);
     }
 
     public void RestartGame()
     {
+        Paused = false;
         SceneManager.LoadScene(0);
     }
 
@@ -67,9 +71,18 @@ public class GameController : MonoBehaviour
 
     public void ClosePaymentScreen()
     {
-        DisableCursor();
-        Paused = false;
-        _payment.SetActive(false);
+        if (!Lost)
+        {
+            DisableCursor();
+            Paused = false;
+            _payment.SetActive(false);
+        }
+        else
+        {
+            _payment.SetActive(false);
+            LoseGame();
+        }
+
     }
 
     public static void EnableCursor()

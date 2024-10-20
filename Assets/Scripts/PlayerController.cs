@@ -25,8 +25,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI _bungeeHealthText;
 
+    [SerializeField] AudioClip _bungeeFall;
+    [SerializeField] AudioClip _bungeeBoing;
+    [SerializeField] AudioClip _budgieYell;
+    [SerializeField] AudioClip _ropeSnap;
+    [SerializeField] AudioClip _fallYell;
+
+    private AudioSource _audioSource;
+
     [Header("Data")]
-    [SerializeField] float _speed = 5f;
     [SerializeField] float mouseSensitivity = 100f;
 
     [SerializeField] float _maxSpeed;
@@ -53,6 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         _speedlines.SetActive(false);
         _vignette.SetActive(false);
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -99,7 +108,9 @@ public class PlayerController : MonoBehaviour
                 _isJumping = true;
 
                 //Take away bungee health
-                _bungeeHealth -= Random.Range(2, 11);
+                _bungeeHealth -= Random.Range(5, 20);
+
+                _audioSource.PlayOneShot(_bungeeFall);
             }
         }
 
@@ -121,11 +132,15 @@ public class PlayerController : MonoBehaviour
             _vignette.SetActive(false);
         }
 
-        _bungeeHealthText.text = $"Rope Integrity - {_bungeeHealth}";
+        _bungeeHealthText.text = $"Rope Integrity {_bungeeHealth}";
 
-        if(_bungeeHealth <= 0)
+        if (_bungeeHealth <= 0)
         {
+            _audioSource.PlayOneShot(_ropeSnap);
+            _audioSource.PlayOneShot(_fallYell);
             _gameController.LoseGame();
+
+            _bungeeHealth = 100;
         }
     }
 
@@ -133,6 +148,8 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y <= _bungeeHeight)
         {
+            _audioSource.PlayOneShot(_bungeeBoing);
+
             _isJumping = false;
             _isGoingUp = true;
         }
@@ -145,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHands()
     {
-        if(_holdingBudgies.Count > 0)
+        if (_holdingBudgies.Count > 0)
         {
             _handsEmpty.SetActive(false);
             _handsFull.SetActive(true);
@@ -194,6 +211,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _audioSource.PlayOneShot(_budgieYell);
             PickUpBudgie(other.GetComponent<BudgieController>());
         }
 
@@ -212,7 +230,7 @@ public class PlayerController : MonoBehaviour
         pickedUpBudgie.gameObject.SetActive(false);
         _holdingBudgies.Add(pickedUpBudgie);
 
-        foreach(BudgieHolder budgieHolder in _budgieHolders)
+        foreach (BudgieHolder budgieHolder in _budgieHolders)
         {
             if (!budgieHolder.HasBudgie)
             {
@@ -224,7 +242,7 @@ public class PlayerController : MonoBehaviour
 
     private void CalculateBudgies()
     {
-        foreach(BudgieController budgie in _holdingBudgies)
+        foreach (BudgieController budgie in _holdingBudgies)
         {
             switch (budgie.BudgieType)
             {
@@ -244,7 +262,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //
-        foreach(BudgieHolder holder in _budgieHolders)
+        foreach (BudgieHolder holder in _budgieHolders)
         {
             if (holder.HasBudgie)
             {
@@ -258,7 +276,7 @@ public class PlayerController : MonoBehaviour
         List<BudgieController> sceneBudgies = new();
         sceneBudgies = FindObjectsOfType<BudgieController>().ToList<BudgieController>();
 
-        foreach(BudgieController budgieController in sceneBudgies)
+        foreach (BudgieController budgieController in sceneBudgies)
         {
             Destroy(budgieController.gameObject, 1f);
         }
