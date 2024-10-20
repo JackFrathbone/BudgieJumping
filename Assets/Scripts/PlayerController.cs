@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
     private List<BudgieController> _holdingBudgies = new();
 
     private int _bungeeHealth = 100;
+
+    private float _safetyTimer;
 
     private void Start()
     {
@@ -112,6 +115,8 @@ public class PlayerController : MonoBehaviour
                 _bungeeHealth -= Random.Range(5, 20);
 
                 _audioSource.PlayOneShot(_bungeeFall);
+
+                _safetyTimer = 0f;
             }
         }
 
@@ -145,6 +150,19 @@ public class PlayerController : MonoBehaviour
         }
 
         _birdCountText.text = $"Birds in Hands {_holdingBudgies.Count}";
+
+        _safetyTimer += Time.deltaTime;
+
+        if (_safetyTimer > 10f)
+        {
+            _isJumping = false;
+            _isGoingUp = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameController.LoadStart();
+        }
     }
 
     private void CheckHeight()

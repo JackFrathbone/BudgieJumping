@@ -114,18 +114,21 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void LoadStart()
+    public static void LoadStart()
     {
+        EnableCursor();
         SceneManager.LoadScene(0);
     }
 
-    public void LoadIntro()
+    public static void LoadIntro()
     {
+        EnableCursor();
         SceneManager.LoadScene(1);
     }
 
-    public void LoadGame()
+    public static void LoadGame()
     {
+        EnableCursor();
         SceneManager.LoadScene(2);
     }
 }
