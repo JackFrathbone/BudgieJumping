@@ -126,6 +126,7 @@ MonoBehaviour:
   _budgetText: {fileID: 8197601846166719325}
   _playerMoneyLabelBefore: {fileID: 1947161868368229398}
   _playerMoneyLabelAfter: {fileID: 3579236751796445874}
+  _deathBird: {fileID: 8772260999022843537}
 --- !u!1 &1298312614135423158
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource _audioSource;
 
+    [SerializeField] GameObject _tutorialStuff;
+
     [Header("Data")]
     [SerializeField] float mouseSensitivity = 100f;
 
@@ -117,6 +119,8 @@ public class PlayerController : MonoBehaviour
                 _audioSource.PlayOneShot(_bungeeFall);
 
                 _safetyTimer = 0f;
+
+                _tutorialStuff.SetActive(false);
             }
         }
 

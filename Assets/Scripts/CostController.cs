@@ -13,6 +13,8 @@ public class CostController : MonoBehaviour
     [SerializeField] TextMeshProUGUI _playerMoneyLabelBefore;
     [SerializeField] TextMeshProUGUI _playerMoneyLabelAfter;
 
+    [SerializeField] GameObject _deathBird;
+
     [Header("Data")]
     private int _dailyCost1;
     private int _dailyCost2;
@@ -57,10 +59,12 @@ public class CostController : MonoBehaviour
 
         if (_calcuatedMoneyLeft >= 0)
         {
+            _deathBird.SetActive(false);
             _playerMoneyLabelAfter.color = Color.black;
         }
         else
         {
+            _deathBird.SetActive(true);
             _playerMoneyLabelAfter.color = Color.red;
         }
     }

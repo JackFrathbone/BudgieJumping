@@ -324,6 +324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef97b54caabb1f7448002def9863b25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &85050635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4200175641982567582, guid: e583cbc4d7952474aa9379e2a3de5a7b, type: 3}
+  m_PrefabInstance: {fileID: 1452122886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &90397564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5787,6 +5792,7 @@ MonoBehaviour:
   _budgieYell: {fileID: 8300000, guid: 185f81c4bcbe6b8409d2437d19173a8e, type: 3}
   _ropeSnap: {fileID: 8300000, guid: 70c5a93fb981ecd488d41d0119133d21, type: 3}
   _fallYell: {fileID: 8300000, guid: 1269864dd3addca49a2175c072fb707f, type: 3}
+  _tutorialStuff: {fileID: 85050635}
   mouseSensitivity: 1000
   _maxSpeed: 75
   _damping: 14

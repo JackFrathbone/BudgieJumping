@@ -39,6 +39,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        PlayerMoney = 0;
+        PlayerDebt = 1000;
+
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             DisableCursor();
