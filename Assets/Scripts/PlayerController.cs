@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
             _bungeeHealth = 100;
         }
 
-        _birdCountText.text = $"Birds in Hands {_holdingBudgies.Count}";
+        _birdCountText.text = $"Bird in Hand {_holdingBudgies.Count}";
 
         _safetyTimer += Time.deltaTime;
 

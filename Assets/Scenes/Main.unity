@@ -5793,7 +5793,7 @@ MonoBehaviour:
   _ropeSnap: {fileID: 8300000, guid: 70c5a93fb981ecd488d41d0119133d21, type: 3}
   _fallYell: {fileID: 8300000, guid: 1269864dd3addca49a2175c072fb707f, type: 3}
   _tutorialStuff: {fileID: 85050635}
-  mouseSensitivity: 1000
+  mouseSensitivity: 800
   _maxSpeed: 75
   _damping: 14
   rayLength: 250

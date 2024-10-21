@@ -517,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Birds in Hand 00
+  m_text: Bird in Hand 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8bad14d0bdc95467896d49fcd1492163, type: 2}
   m_sharedMaterial: {fileID: -4787816117029222894, guid: 8bad14d0bdc95467896d49fcd1492163, type: 2}
