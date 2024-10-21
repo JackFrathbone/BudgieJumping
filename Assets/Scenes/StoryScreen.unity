@@ -1070,7 +1070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38, y: 315}
+  m_AnchoredPosition: {x: -46, y: 344}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693307201
@@ -1219,8 +1219,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _market: {fileID: 0}
   _payment: {fileID: 0}
+  _debt: {fileID: 0}
   _win: {fileID: 0}
   _lose: {fileID: 0}
+  _budgieMarketController: {fileID: 0}
+  _costController: {fileID: 0}
 --- !u!4 &1873097212
 Transform:
   m_ObjectHideFlags: 0
