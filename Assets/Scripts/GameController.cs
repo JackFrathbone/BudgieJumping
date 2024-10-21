@@ -22,13 +22,17 @@ public class GameController : MonoBehaviour
 
     [Header("States")]
     public static bool Paused;
-    public static bool Lost;
 
     [Header("Screens")]
     [SerializeField] GameObject _market;
     [SerializeField] GameObject _payment;
+    [SerializeField] GameObject _debt;
     [SerializeField] GameObject _win;
     [SerializeField] GameObject _lose;
+
+    [Header("References")]
+    [SerializeField] BudgieMarketController _budgieMarketController;
+    [SerializeField] CostController _costController;
 
     private void Start()
     {
@@ -36,7 +40,6 @@ public class GameController : MonoBehaviour
         {
             DisableCursor();
         }
-
     }
 
     public void WinGame()
@@ -66,21 +69,33 @@ public class GameController : MonoBehaviour
     {
         EnableCursor();
         Paused = true;
+
+        _budgieMarketController.AdjustCosts();
         _market.SetActive(true);
+
+        _costController.AdjustCost();
     }
 
     public void ClosePaymentScreen()
     {
-        if (!Lost)
+        _debt.SetActive(true);
+        _market.SetActive(false);
+        _payment.SetActive(false);
+    }
+
+    public void CloseDebtScreen()
+    {
+        if (PlayerDebt > 0)
         {
+            _debt.SetActive(false);
+
             DisableCursor();
             Paused = false;
-            _payment.SetActive(false);
         }
         else
         {
-            _payment.SetActive(false);
-            LoseGame();
+            _debt.SetActive(false);
+            WinGame();
         }
 
     }
@@ -121,18 +136,21 @@ public class GameController : MonoBehaviour
 
     public static void LoadStart()
     {
+        Paused = false;
         EnableCursor();
         SceneManager.LoadScene(0);
     }
 
     public static void LoadIntro()
     {
+        Paused = false;
         EnableCursor();
         SceneManager.LoadScene(1);
     }
 
     public static void LoadGame()
     {
+        Paused = false;
         EnableCursor();
         SceneManager.LoadScene(2);
     }

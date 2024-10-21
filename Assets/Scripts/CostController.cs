@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -18,51 +17,57 @@ public class CostController : MonoBehaviour
     private int _dailyCost2;
     private int _dailyCost3;
 
+    private int _calcuatedMoneyLeft;
+
     private void OnEnable()
     {
-        AdjustCost();
         UpdateLabel();
         UpdatePlayerMoney();
     }
 
-    private void AdjustCost()
+    public void AdjustCost()
     {
         //Adjust the cost randomly
-        _dailyCost1 = 85;
-        _dailyCost2 = 100;
-        _dailyCost3 = Random.Range(5, 50);
+        _dailyCost1 = 15;
+        _dailyCost2 = 50;
+        _dailyCost3 = Random.Range(25, 85);
     }
 
     private void UpdateLabel()
     {
-        _dailyCost1Text.text = "$" + _dailyCost1.ToString();
-        _dailyCost2Text.text = "$" + _dailyCost2.ToString();
-        _dailyCost3Text.text = "$" + _dailyCost3.ToString();
+        _dailyCost1Text.text = "-$" + _dailyCost1.ToString();
+        _dailyCost2Text.text = "-$" + _dailyCost2.ToString();
+        _dailyCost3Text.text = "-$" + _dailyCost3.ToString();
 
-        _budgetText.text = "$" + GameController.PlayerDebt;
+        _budgetText.text = "-$" + GameController.PlayerDebt;
     }
 
     private void UpdatePlayerMoney()
     {
-        _playerMoneyLabelBefore.text = "$" + GameController.PlayerMoney;
+        _playerMoneyLabelBefore.text = "+$" + GameController.PlayerMoney;
 
         //Calculate money after debt
         int dailySpend = _dailyCost1 + _dailyCost2 + _dailyCost3;
 
+        _calcuatedMoneyLeft = GameController.PlayerMoney;
+        _calcuatedMoneyLeft -= dailySpend;
+
+        _playerMoneyLabelAfter.text = "$" + (_calcuatedMoneyLeft);
+
+        if (_calcuatedMoneyLeft >= 0)
+        {
+            _playerMoneyLabelAfter.color = Color.black;
+        }
+        else
+        {
+            _playerMoneyLabelAfter.color = Color.red;
+        }
+    }
+
+    public void SubmitPlayerMoneyChanges()
+    {
+        //Calculate money after debt
+        int dailySpend = _dailyCost1 + _dailyCost2 + _dailyCost3;
         GameController.PlayerMoney -= dailySpend;
-
-        if (GameController.PlayerMoney > 0)
-        {
-            GameController.PlayerDebt -= GameController.PlayerMoney;
-        }
-
-        if (GameController.PlayerMoney < 0)
-        {
-            GameController.Lost = true;
-        }
-
-        GameController.PlayerMoney = 0;
-
-        _playerMoneyLabelAfter.text = "$" + GameController.PlayerDebt.ToString();
     }
 }

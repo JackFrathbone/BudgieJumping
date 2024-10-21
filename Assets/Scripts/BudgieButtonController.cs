@@ -20,11 +20,10 @@ public class BudgieButtonController : MonoBehaviour
 
     private void OnEnable()
     {
-        AdjustCost();
         UpdateLabel();
     }
 
-    private void AdjustCost()
+    public void AdjustCost()
     {
         if (_previousCost != 0)
         {
