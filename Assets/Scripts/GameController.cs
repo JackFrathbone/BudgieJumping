@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     [SerializeField] BudgieMarketController _budgieMarketController;
     [SerializeField] CostController _costController;
 
-    public static Color GoodGreen = new Color(5, 159, 0);
+    public static Color GoodGreen = new Color32(5, 159, 0, 255);
 
     private void Start()
     {

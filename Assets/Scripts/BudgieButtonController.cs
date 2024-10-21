@@ -51,7 +51,7 @@ public class BudgieButtonController : MonoBehaviour
         }
         else if (_previousCost < _cost)
         {
-            _budgieCost.color = Color.green;
+            _budgieCost.color = GameController.GoodGreen;
         }
         else if (_previousCost == _cost)
         {
