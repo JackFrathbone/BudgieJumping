@@ -94,6 +94,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            Paused = true;
+            EnableCursor();
             _debt.SetActive(false);
             WinGame();
         }
