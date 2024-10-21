@@ -1222,7 +1222,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "It looks like I'm going to be \"Owlright\".\n\nI've paid off my debt to
     the cartel and I'm now as free as a bird! \nNow to pay off my student debt and
-    mortgage...\n\nTime to bungie again for  MORE BUDGIES!\nWish me luck!\n"
+    mortgage...\n\nTime to bungie again for  MORE BUDGIES!!!!!!!!!!!!\nWish me luck!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8bad14d0bdc95467896d49fcd1492163, type: 2}
   m_sharedMaterial: {fileID: -4787816117029222894, guid: 8bad14d0bdc95467896d49fcd1492163, type: 2}
@@ -1760,5 +1760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _market: {fileID: 0}
   _payment: {fileID: 0}
+  _debt: {fileID: 0}
   _win: {fileID: 0}
   _lose: {fileID: 0}
+  _budgieMarketController: {fileID: 0}
+  _costController: {fileID: 0}
