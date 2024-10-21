@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 
     [Header("States")]
     public static bool Paused;
+    public static bool Lost;
 
     [Header("Screens")]
     [SerializeField] GameObject _market;
@@ -78,6 +79,15 @@ public class GameController : MonoBehaviour
 
     public void ClosePaymentScreen()
     {
+        if (Lost)
+        {
+            _debt.SetActive(true);
+            _market.SetActive(false);
+            _payment.SetActive(false);
+            LoseGame();
+            return;
+        }
+
         _debt.SetActive(true);
         _market.SetActive(false);
         _payment.SetActive(false);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -69,5 +70,14 @@ public class CostController : MonoBehaviour
         //Calculate money after debt
         int dailySpend = _dailyCost1 + _dailyCost2 + _dailyCost3;
         GameController.PlayerMoney -= dailySpend;
+
+        if(GameController.PlayerMoney < 0)
+        {
+            GameController.Lost = true;
+        }
+        else
+        {
+            GameController.Lost = false;
+        }
     }
 }
