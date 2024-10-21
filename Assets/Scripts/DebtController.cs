@@ -22,7 +22,7 @@ public class DebtController : MonoBehaviour
 
         if(GameController.PlayerMoney >= 0)
         {
-            _moneyLeftText.color = Color.green;
+            _moneyLeftText.color = GameController.GoodGreen;
         }
         else
         {
@@ -42,7 +42,7 @@ public class DebtController : MonoBehaviour
         int displayDebt = GameController.PlayerDebt;
         if (displayMoney >= 0)
         {
-            _debtLeftText.color = Color.green;
+            _debtLeftText.color = GameController.GoodGreen;
 
             while (displayDebt > _calculatedDebt)
             {
