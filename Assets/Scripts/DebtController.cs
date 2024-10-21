@@ -17,8 +17,8 @@ public class DebtController : MonoBehaviour
     {
         _continueButton.SetActive(false);
 
-        _moneyLeftText.text = GameController.PlayerMoney.ToString();
-        _debtLeftText.text = GameController.PlayerDebt.ToString();
+        _moneyLeftText.text = "$" + GameController.PlayerMoney.ToString();
+        _debtLeftText.text = "$" + GameController.PlayerDebt.ToString();
 
         if(GameController.PlayerMoney >= 0)
         {
@@ -49,8 +49,8 @@ public class DebtController : MonoBehaviour
                 displayMoney--;
                 displayDebt--;
 
-                _moneyLeftText.text = displayMoney.ToString();
-                _debtLeftText.text = displayDebt.ToString();
+                _moneyLeftText.text = "$" + displayMoney.ToString();
+                _debtLeftText.text = "$" + displayDebt.ToString();
                 yield return new WaitForSeconds(0.035f);
             }
         }
@@ -63,8 +63,8 @@ public class DebtController : MonoBehaviour
                 displayMoney++;
                 displayDebt++;
 
-                _moneyLeftText.text = displayMoney.ToString();
-                _debtLeftText.text = displayDebt.ToString();
+                _moneyLeftText.text = "$" + displayMoney.ToString();
+                _debtLeftText.text = "$" + displayDebt.ToString();
                 yield return new WaitForSeconds(0.035f);
             }
         }
