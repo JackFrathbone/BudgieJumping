@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource _audioSource;
 
-    [SerializeField] GameObject _tutorialStuff;
+    private TutorialController _tutorialController;
 
     [Header("Data")]
     [SerializeField] float mouseSensitivity = 100f;
@@ -68,13 +67,15 @@ public class PlayerController : MonoBehaviour
         _vignette.SetActive(false);
 
         _audioSource = GetComponent<AudioSource>();
+
+        _tutorialController = GetComponent<TutorialController>();
+        _tutorialController.ShowMovementTutorial();
     }
 
     void Update()
     {
         if (GameController.Paused)
         {
-            transform.position = _bungeeOrigin.position;
             return;
         }
 
@@ -89,9 +90,11 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                transform.position = _bungeeOrigin.position;
                 _bungeeHealth = 100;
                 CalculateBudgies();
                 _gameController.OpenMarketScreen();
+                _tutorialController.ShowMarketTutorial();
             }
 
         }
@@ -119,8 +122,6 @@ public class PlayerController : MonoBehaviour
                 _audioSource.PlayOneShot(_bungeeFall);
 
                 _safetyTimer = 0f;
-
-                _tutorialStuff.SetActive(false);
             }
         }
 
@@ -144,13 +145,18 @@ public class PlayerController : MonoBehaviour
 
         _bungeeHealthText.text = $"Rope Integrity {_bungeeHealth}";
 
-        if(_bungeeHealth > 30)
+        if (_bungeeHealth > 30)
         {
             _bungeeHealthText.color = Color.black;
         }
         else
         {
             _bungeeHealthText.color = Color.red;
+        }
+
+        if(_bungeeHealth <= 50)
+        {
+            _tutorialController.ShowRopeTutorial();
         }
 
         if (_bungeeHealth <= 0)
@@ -272,6 +278,8 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
+
+        _tutorialController.ShowBudgieTutorial();
     }
 
     private void CalculateBudgies()

@@ -166,6 +166,18 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
+    public static void Pause()
+    {
+        Paused = true;
+        EnableCursor();
+    }
+
+    public static void Unpause()
+    {
+        Paused = false;
+        DisableCursor();
+    }
+
     public static void LoadStart()
     {
         Paused = false;
