@@ -37,30 +37,10 @@ public class GameController : MonoBehaviour
 
     public static Color GoodGreen = new Color32(5, 159, 0, 255);
 
-    public static GameController Instance { get; private set; }
-
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
     private void Start()
     {
         PlayerMoney = 0;
         PlayerDebt = 1000;
-
-        if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            DisableCursor();
-        }
     }
 
     public void WinGame()
