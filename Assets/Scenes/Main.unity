@@ -6078,10 +6078,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialController
   _tutorialParent: {fileID: 235356685}
-  _tutorialMovementPrefab: {fileID: 7129453689081424542, guid: 51e0e4dcbf650cd4982ab9dda8a40df8, type: 3}
-  _tutorialBudgiePrefab: {fileID: 7129453689081424542, guid: 51e0e4dcbf650cd4982ab9dda8a40df8, type: 3}
-  _tutorialRopePrefab: {fileID: 7129453689081424542, guid: 51e0e4dcbf650cd4982ab9dda8a40df8, type: 3}
-  _tutorialMarketPrefab: {fileID: 7129453689081424542, guid: 51e0e4dcbf650cd4982ab9dda8a40df8, type: 3}
+  _tutorialMovementPrefab: {fileID: 5330175126966540274, guid: 1848b65f3e5a09648a58b2c1c7fa3821, type: 3}
+  _tutorialBudgiePrefab: {fileID: 5330175126966540274, guid: 8dc432f4f6f5c6e40a4754f5864291d9, type: 3}
+  _tutorialRopePrefab: {fileID: 5330175126966540274, guid: 69b0187900588c14088016148fcf0a5a, type: 3}
+  _tutorialMarketPrefab: {fileID: 5330175126966540274, guid: 72fb5cd2aa9d9f14a90bbdc02aeb348d, type: 3}
 --- !u!1 &1634131155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,14 +6958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed75b2f648101540898699cf4e4f106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMoney: 0
-  PlayerDebt: 1000
-  GreenBudgieCount: 0
-  BlueBudgieCount: 0
-  RedBudgieCount: 0
-  GoldBudgieCount: 0
-  Paused: 0
-  Lost: 0
   _market: {fileID: 883077071}
   _payment: {fileID: 424285945}
   _debt: {fileID: 732223143}
