@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 3549230716706592494}
   - component: {fileID: 8121143632870379277}
   - component: {fileID: 424846096712477170}
+  - component: {fileID: 9115718157415046990}
   m_Layer: 5
   m_Name: BungeeHealthText
   m_TagString: Untagged
@@ -328,16 +329,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3946275119059029699}
   m_Father: {fileID: 5775374886513477781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -36, y: 24}
+  m_AnchoredPosition: {x: 311.0581, y: -93.69446}
   m_SizeDelta: {x: 654.8269, y: 222.065}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.49999997, y: 0.49999997}
 --- !u!222 &8121143632870379277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -376,6 +377,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &9115718157415046990
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804492454726959561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 248bb6f19fc6bab40a4ac9101d95efae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2087828778637270687
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip _ropeSnap;
     [SerializeField] AudioClip _fallYell;
 
+    [SerializeField] Animator _bungeeHealthAnimator;
+
     private AudioSource _audioSource;
 
     private TutorialController _tutorialController;
@@ -157,12 +159,14 @@ public class PlayerController : MonoBehaviour
 
         _bungeeHealthText.text = $"Rope Integrity {_bungeeHealth}";
 
-        if (_bungeeHealth > 30)
+        if (_bungeeHealth > 45)
         {
+            _bungeeHealthAnimator.SetBool("Warning", false);
             _bungeeHealthText.color = Color.black;
         }
         else
         {
+            _bungeeHealthAnimator.SetBool("Warning", true);
             _bungeeHealthText.color = Color.red;
         }
 

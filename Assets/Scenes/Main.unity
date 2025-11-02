@@ -5383,6 +5383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1452122889 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9115718157415046990, guid: e583cbc4d7952474aa9379e2a3de5a7b, type: 3}
+  m_PrefabInstance: {fileID: 1452122886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1477023887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6030,6 +6035,7 @@ MonoBehaviour:
   _budgieYell: {fileID: 8300000, guid: 185f81c4bcbe6b8409d2437d19173a8e, type: 3}
   _ropeSnap: {fileID: 8300000, guid: 70c5a93fb981ecd488d41d0119133d21, type: 3}
   _fallYell: {fileID: 8300000, guid: 1269864dd3addca49a2175c072fb707f, type: 3}
+  _bungeeHealthAnimator: {fileID: 1452122889}
   _cashInConfirm: {fileID: 321820770}
   _quitConfirm: {fileID: 479449013}
   mouseSensitivity: 800
