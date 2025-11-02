@@ -17,6 +17,8 @@ public class TutorialController : MonoBehaviour
     private bool _ropeTutShown;
     private bool _marketTutShown;
 
+    private bool _dontUnpause;
+
     private GameObject _currentTutorial;
 
     public void ShowMovementTutorial()
@@ -53,6 +55,7 @@ public class TutorialController : MonoBehaviour
 
         _marketTutShown = true;
         CreateTutorial(_tutorialMarketPrefab);
+        _dontUnpause = true;
     }
 
     private void CreateTutorial(GameObject prefab)
@@ -71,7 +74,9 @@ public class TutorialController : MonoBehaviour
         _currentTutorial.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         Destroy(_currentTutorial);
 
-        if(!_marketTutShown)
+        if(!_dontUnpause)
             GameController.Unpause();
+
+        _dontUnpause = false;
     }
 }

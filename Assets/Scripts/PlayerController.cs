@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
 
     private TutorialController _tutorialController;
 
+    [SerializeField] private Transform _canvasParent;
+    [SerializeField] private GameObject _cashInConfirmPrefab;
+    [SerializeField] private GameObject _quitConfirmPrefab;
+
     [Header("Data")]
     [SerializeField] float mouseSensitivity = 100f;
 
