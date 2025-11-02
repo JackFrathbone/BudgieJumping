@@ -9,14 +9,20 @@ public class GambleButton : MonoBehaviour
 
     [Header("References")]
     [SerializeField] TextMeshProUGUI _budgieNameAndCount;
-    [SerializeField] Image _image;
+    [SerializeField] Image _labelImage;
+    [SerializeField] Image _gridImage;
+
+    [SerializeField] TextMeshProUGUI _currentBudgieCountLabel;
+
+    [Header("Data")]
+    private int _currentBudgieCount;
 
     private void OnEnable()
     {
-        UpdateBirdText();
+        UpdateText();
     }
 
-    private void UpdateBirdText()
+    private void UpdateText()
     {
         switch (_budgieType)
         {
@@ -33,81 +39,126 @@ public class GambleButton : MonoBehaviour
                 _budgieNameAndCount.text = $"Gold Budgie ({GameController.GoldBudgieCount})";
                 break;
         }
+
+        _currentBudgieCountLabel.text = _currentBudgieCount.ToString();
     }
 
-    public void TryGamble()
+    public void AddBudgie()
+    {
+        if (!CheckBudgieAvailable())
+            return;
+
+        RemoveBudgieFromPlayer();
+
+        _gridImage.color = Color.red;
+        _labelImage.color = Color.green;
+        Invoke("ResetButton", 0.5f);
+
+        _currentBudgieCount++;
+
+        UpdateText();
+    }
+
+    public void RemoveBudgie()
+    {
+        if (_currentBudgieCount <= 0)
+            return;
+
+        _gridImage.color = Color.green;
+        _labelImage.color = Color.red;
+        Invoke("ResetButton", 0.5f);
+
+        _currentBudgieCount--;
+        AddBudgiesToPlayer(1);
+
+        UpdateText();
+    }
+
+    public void RemoveAllBudgies()
+    {
+        _currentBudgieCount = 0;
+
+        _gridImage.color = Color.red;
+        Invoke("ResetButton", 0.5f);
+
+        UpdateText();
+    }
+
+    private bool CheckBudgieAvailable()
     {
         switch (_budgieType)
         {
             case BudgieType.Green:
                 if (GameController.GreenBudgieCount >= 1)
                 {
-                    if (FiftyFifty())
-                    {
-                        _image.color = Color.red;
-                        GameController.GreenBudgieCount--;
-                    }
-                    else
-                    {
-                        _image.color = Color.green;
-                        GameController.GreenBudgieCount++;
-                    }
+                    return true;
                 }
                 break;
             case BudgieType.Blue:
                 if (GameController.BlueBudgieCount >= 1)
                 {
-                    if (FiftyFifty())
-                    {
-                        _image.color = Color.red;
-                        GameController.BlueBudgieCount--;
-                    }
-                    else
-                    {
-                        _image.color = Color.green;
-                        GameController.BlueBudgieCount++;
-                    }
+                    return true;
                 }
                 break;
             case BudgieType.Red:
                 if (GameController.RedBudgieCount >= 1)
                 {
-                    if (FiftyFifty())
-                    {
-                        _image.color = Color.red;
-                        GameController.RedBudgieCount--;
-                    }
-                    else
-                    {
-                        _image.color = Color.green;
-                        GameController.RedBudgieCount++;
-                    }
+                    return true;
                 }
                 break;
             case BudgieType.Gold:
                 if (GameController.GoldBudgieCount >= 1)
                 {
-                    if (FiftyFifty())
-                    {
-                        _image.color = Color.red;
-                        GameController.GoldBudgieCount--;
-                    }
-                    else
-                    {
-                        _image.color = Color.green;
-                        GameController.GoldBudgieCount++;
-                    }
+                    return true;
                 }
                 break;
         }
 
-        Invoke("ResetButton", 0.5f);
-        UpdateBirdText();
+        return false;
+    }
+
+    private void AddBudgiesToPlayer(int i)
+    {
+        switch (_budgieType)
+        {
+            case BudgieType.Green:
+                GameController.GreenBudgieCount += i;
+                break;
+            case BudgieType.Blue:
+                GameController.BlueBudgieCount += i;
+                break;
+            case BudgieType.Red:
+                GameController.RedBudgieCount += i;
+                break;
+            case BudgieType.Gold:
+                GameController.GoldBudgieCount += i;
+                break;
+        }
+    }
+
+    private void RemoveBudgieFromPlayer()
+    {
+        switch (_budgieType)
+        {
+            case BudgieType.Green:
+                GameController.GreenBudgieCount -= 1;
+                break;
+            case BudgieType.Blue:
+                GameController.BlueBudgieCount -= 1;
+                break;
+            case BudgieType.Red:
+                GameController.RedBudgieCount -= 1;
+                break;
+            case BudgieType.Gold:
+                GameController.GoldBudgieCount -= 1;
+                break;
+        }
     }
 
     private void ResetButton()
     {
-        _image.color = Color.white;
+        _gridImage.color = Color.white;
+        _labelImage.color = Color.white;
     }
 
     private bool FiftyFifty()
