@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,9 +37,8 @@ public class PlayerController : MonoBehaviour
 
     private TutorialController _tutorialController;
 
-    [SerializeField] private Transform _canvasParent;
-    [SerializeField] private GameObject _cashInConfirmPrefab;
-    [SerializeField] private GameObject _quitConfirmPrefab;
+    [SerializeField] private GameObject _cashInConfirm;
+    [SerializeField] private GameObject _quitConfirm;
 
     [Header("Data")]
     [SerializeField] float mouseSensitivity = 100f;
@@ -74,10 +74,21 @@ public class PlayerController : MonoBehaviour
 
         _tutorialController = GetComponent<TutorialController>();
         _tutorialController.ShowMovementTutorial();
+
+        _cashInConfirm.GetComponentInChildren<Button>().onClick.AddListener(CashIn);
+        _cashInConfirm.SetActive(false);
+        _quitConfirm.GetComponentInChildren<Button>().onClick.AddListener(GameController.LoadStart);
+        _quitConfirm.SetActive(false);
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameController.Pause();
+            _quitConfirm.SetActive(true);
+        }
+
         if (GameController.Paused)
         {
             return;
@@ -94,11 +105,8 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                transform.position = _bungeeOrigin.position;
-                _bungeeHealth = 100;
-                CalculateBudgies();
-                _gameController.OpenMarketScreen();
-                _tutorialController.ShowMarketTutorial();
+                GameController.Pause();
+                _cashInConfirm.SetActive(true);
             }
 
         }
@@ -158,7 +166,7 @@ public class PlayerController : MonoBehaviour
             _bungeeHealthText.color = Color.red;
         }
 
-        if(_bungeeHealth <= 50)
+        if (_bungeeHealth <= 50)
         {
             _tutorialController.ShowRopeTutorial();
         }
@@ -180,11 +188,6 @@ public class PlayerController : MonoBehaviour
         {
             _isJumping = false;
             _isGoingUp = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //GameController.LoadStart();
         }
     }
 
@@ -334,5 +337,18 @@ public class PlayerController : MonoBehaviour
         budgie.transform.position = transform.position;
 
         _holdingBudgies.Remove(budgie);
+    }
+
+    public void CashIn()
+    {
+        GameController.InMenu = true;
+
+        transform.position = _bungeeOrigin.position;
+        _bungeeHealth = 100;
+        CalculateBudgies();
+        _gameController.OpenMarketScreen();
+        _tutorialController.ShowMarketTutorial();
+
+        _cashInConfirm.SetActive(false);
     }
 }

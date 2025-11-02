@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,7 @@ public class GameController : MonoBehaviour
     [Header("States")]
     public static bool Paused;
     public static bool Lost;
+    public static bool InMenu;
 
     [Header("Screens")]
     [SerializeField] GameObject _market;
@@ -101,6 +103,7 @@ public class GameController : MonoBehaviour
 
             DisableCursor();
             Paused = false;
+            InMenu = false;
         }
         else
         {
@@ -154,12 +157,16 @@ public class GameController : MonoBehaviour
 
     public static void Unpause()
     {
+        if (InMenu)
+            return;
+
         Paused = false;
         DisableCursor();
     }
 
     public static void LoadStart()
     {
+        InMenu = false;
         Paused = false;
         EnableCursor();
         SceneManager.LoadScene(0);
