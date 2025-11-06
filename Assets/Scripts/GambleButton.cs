@@ -20,6 +20,8 @@ public class GambleButton : MonoBehaviour
     private void OnEnable()
     {
         UpdateText();
+
+        Time.timeScale = 1f;
     }
 
     private void UpdateText()

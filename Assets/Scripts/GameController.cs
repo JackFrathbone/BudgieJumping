@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,6 +42,15 @@ public class GameController : MonoBehaviour
     {
         PlayerMoney = 0;
         PlayerDebt = 1000;
+
+        GreenBudgieCount = 0;
+        BlueBudgieCount = 0;
+        RedBudgieCount = 0;
+        GoldBudgieCount = 0;
+
+        Paused = false;
+        Lost = false;
+        InMenu = false;
     }
 
     public void WinGame()
@@ -151,6 +159,8 @@ public class GameController : MonoBehaviour
 
     public static void Pause()
     {
+        Time.timeScale = 0f;
+
         Paused = true;
         EnableCursor();
     }
@@ -160,12 +170,16 @@ public class GameController : MonoBehaviour
         if (InMenu)
             return;
 
+        Time.timeScale = 1f;
+
         Paused = false;
         DisableCursor();
     }
 
     public static void LoadStart()
     {
+        Time.timeScale = 1f;
+
         InMenu = false;
         Paused = false;
         EnableCursor();
@@ -174,6 +188,8 @@ public class GameController : MonoBehaviour
 
     public static void LoadIntro()
     {
+        Time.timeScale = 1f;
+
         Paused = false;
         EnableCursor();
         SceneManager.LoadScene(1);
@@ -181,6 +197,8 @@ public class GameController : MonoBehaviour
 
     public static void LoadGame()
     {
+        Time.timeScale = 1f;
+
         Paused = false;
         EnableCursor();
         SceneManager.LoadScene(2);
