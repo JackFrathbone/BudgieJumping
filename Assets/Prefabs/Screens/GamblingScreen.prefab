@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 1191712727162451449}
   - component: {fileID: 1427933023606496317}
   - component: {fileID: 2722938002866246482}
+  - component: {fileID: 5255595391837165749}
   m_Layer: 5
   m_Name: GamblingScreen
   m_TagString: Untagged
@@ -146,6 +147,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5255595391837165749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863897319348495136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797797796a3808143b97c1d90e24544e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GambleController
+  _gambleButtons:
+  - {fileID: 1090905511667361783}
+  - {fileID: 7460971258589626033}
+  - {fileID: 387476456518460150}
+  - {fileID: 846433365636048355}
+  _rollButton: {fileID: 4013300933581687168}
 --- !u!1 &5633079025846378958
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +574,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+--- !u!114 &387476456518460150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 260627850028441478, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+  m_PrefabInstance: {fileID: 503691150769061232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd70ad5dd6ce714a9c0b95677ffeb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8991869017275569256 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8805928515159845144, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
@@ -713,6 +743,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+--- !u!114 &846433365636048355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 260627850028441478, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+  m_PrefabInstance: {fileID: 586256367015344741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd70ad5dd6ce714a9c0b95677ffeb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8220824532975833981 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8805928515159845144, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
@@ -867,6 +908,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+--- !u!114 &1090905511667361783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 260627850028441478, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+  m_PrefabInstance: {fileID: 918245515399149681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd70ad5dd6ce714a9c0b95677ffeb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8541835606620361065 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8805928515159845144, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
@@ -1144,6 +1196,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8805928515159845144, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
   m_PrefabInstance: {fileID: 7212337173992235319}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7460971258589626033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 260627850028441478, guid: dd2c8981b792b614b863beadffa541d7, type: 3}
+  m_PrefabInstance: {fileID: 7212337173992235319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd70ad5dd6ce714a9c0b95677ffeb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7390917121556857580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1346,6 +1409,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5255595391837165749}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Roll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GambleController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798944448892701323, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5723800601419550520, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
       propertyPath: m_Name
       value: RollButton
@@ -1359,6 +1450,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+--- !u!1 &4013300933581687168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5723800601419550520, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
+  m_PrefabInstance: {fileID: 8709149954777990840}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6412045839677282608 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2315188902532128648, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}

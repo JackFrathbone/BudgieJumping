@@ -76,11 +76,23 @@ public class GambleButton : MonoBehaviour
         UpdateText();
     }
 
+    public void DoubleBudgies()
+    {
+        AddBudgiesToPlayer(_currentBudgieCount * 2);
+
+        _currentBudgieCount = 0;
+
+        _labelImage.color = Color.green;
+        Invoke("ResetButton", 0.5f);
+
+        UpdateText();
+    }
+
     public void RemoveAllBudgies()
     {
         _currentBudgieCount = 0;
 
-        _gridImage.color = Color.red;
+        _labelImage.color = Color.red;
         Invoke("ResetButton", 0.5f);
 
         UpdateText();
@@ -161,18 +173,6 @@ public class GambleButton : MonoBehaviour
     {
         _gridImage.color = Color.white;
         _labelImage.color = Color.white;
-    }
-
-    private bool FiftyFifty()
-    {
-        if (Random.Range(0, 2) == 1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 
 }
