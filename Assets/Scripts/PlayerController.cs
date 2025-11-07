@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _quitConfirm;
 
     [Header("Data")]
-    [SerializeField] float mouseSensitivity = 100f;
+    private float mouseSensitivity => Settings.MouseSensitivity * 4;
 
     [SerializeField] float _maxSpeed;
     [SerializeField] float _damping;

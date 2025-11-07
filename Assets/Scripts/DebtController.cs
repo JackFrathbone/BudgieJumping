@@ -51,7 +51,7 @@ public class DebtController : MonoBehaviour
 
                 _moneyLeftText.text = "$" + displayMoney.ToString();
                 _debtLeftText.text = "$" + displayDebt.ToString();
-                yield return new WaitForSeconds(0.005f);
+                yield return new WaitForSeconds(0.0005f);
             }
         }
         else

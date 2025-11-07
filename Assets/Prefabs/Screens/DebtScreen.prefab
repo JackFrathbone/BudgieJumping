@@ -1078,7 +1078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856247099923964260, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
       propertyPath: m_text
-      value: I love another day!
+      value: I live another day!
       objectReference: {fileID: 0}
     - target: {fileID: 7856247099923964260, guid: 92a21abfd5887ae41be7babc525efd9f, type: 3}
       propertyPath: m_fontSize

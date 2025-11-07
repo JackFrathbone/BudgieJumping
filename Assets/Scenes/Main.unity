@@ -6038,7 +6038,6 @@ MonoBehaviour:
   _bungeeHealthAnimator: {fileID: 1452122889}
   _cashInConfirm: {fileID: 321820770}
   _quitConfirm: {fileID: 479449013}
-  mouseSensitivity: 800
   _maxSpeed: 75
   _damping: 14
   rayLength: 250
@@ -6205,7 +6204,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.85
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8665,6 +8664,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1704022100807929902, guid: df6fa9c4f756b634fbf4ef68b645b8c4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51.36206
+      objectReference: {fileID: 0}
     - target: {fileID: 2421403035292678041, guid: df6fa9c4f756b634fbf4ef68b645b8c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10442,6 +10445,34 @@ PrefabInstance:
     - target: {fileID: 1744625533271302870, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -895.3705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1928130110}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseDebtScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907969035846340863, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3082631548000407764, guid: 0d5772d2ab49290459db4d09f8308fa6, type: 3}
       propertyPath: m_AnchorMax.y
